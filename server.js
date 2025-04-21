@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 //files imported
 import connectDB from "./utils/db.js";
 import authRoute from "./Routes/auth.route.js";
+import hotelRoute from "./Routes/hotel.route.js";
 
 const app = express();
 app.use(cors());
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoute);
+app.use("/api/hotel", hotelRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -22,7 +22,7 @@ export const regiterUser = async (req, res) => {
 
     await newUser.save();
 
-    const token = generateToken(newUser._id);
+    const token = generateToken(newUser._id, newUser.role);
 
     res.status(201).json({
       _id: newUser._id,
@@ -54,7 +54,7 @@ export const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
     console.log("password");
-    const token = generateToken(user._id);
+    const token = generateToken(user._id, user.role);
     console.log("token");
     res
       .cookie("token", token, {
