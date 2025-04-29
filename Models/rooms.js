@@ -23,6 +23,29 @@ const roomSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  hotel: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Hotel",
+    required: true,
+  },
+  checkInDate: {
+    type: Date,
+  },
+  checkOutDate: {
+    type: Date,
+  },
+  totalPrice: {
+    type: Number,
+  },
+  isPaid: {
+    type: Boolean,
+    default: false,
+  },
+  bookingStatus: {
+    type: String,
+    enum: ["booked", "completed", "cancelled"],
+    default: "booked",
+  },
 });
 
 const Room = mongoose.model("Room", roomSchema);

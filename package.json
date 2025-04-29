@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "update-room-statuses": "node roomStatusUpdater.js"
   },
   "keywords": [],
   "author": "",
